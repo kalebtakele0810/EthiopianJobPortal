@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Migration[6.1]
+class Location 
   def change
   end
 end
