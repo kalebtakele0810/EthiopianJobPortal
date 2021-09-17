@@ -9,20 +9,20 @@ class JobsController < ApplicationController
     @page = params.fetch(:page,0).to_i
     @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
     
-    @jobsPageCount=(Job.where('deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
-    @jobs = Job.where('deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+    @jobsPageCount=(Job.where('jobs.deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
+    @jobs = Job.where('jobs.deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
     @job_categories = JobCategory.all
-    @featured_jobs = Job.where('deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+    @featured_jobs = Job.where('jobs.deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
   end
 
   def find_by_category
    @page = params.fetch(:page,0).to_i
     @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
     
-    @jobsPageCount=(Job.where('deadlineDate >= ? and JobCategory_id = ?',  Date.today,@JobCategory_id).all.count/JOBS_PER_PAGE) 
-    @jobs = Job.where('deadlineDate >= ? and JobCategory_id = ? ',  Date.today,@JobCategory_id).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+    @jobsPageCount=(Job.where('jobs.deadlineDate >= ? and jobs.JobCategory_id = ?',  Date.today,@JobCategory_id).all.count/JOBS_PER_PAGE) 
+    @jobs = Job.where('jobs.deadlineDate >= ? and jobs.JobCategory_id = ? ',  Date.today,@JobCategory_id).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
     @job_categories = JobCategory.all
-    @featured_jobs = Job.where('deadlineDate >= ? and JobCategory_id = ? ',  Date.today,@JobCategory_id).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+    @featured_jobs = Job.where('jobs.deadlineDate >= ? and jobs.JobCategory_id = ? ',  Date.today,@JobCategory_id).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
   end
 
   # GET /jobs/1 or /jobs/1.json
@@ -30,10 +30,10 @@ class JobsController < ApplicationController
       @page = params.fetch(:page,0).to_i
       @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
       
-      @jobsPageCount=(Job.where('deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
-      @jobs = Job.where('deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+      @jobsPageCount=(Job.where('jobs.deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
+      @jobs = Job.where('jobs.deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
       @job_categories = JobCategory.all
-      @featured_jobs = Job.where('deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+      @featured_jobs = Job.where('jobs.deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
           
       if @job.numberOfviews == nil    
         @job.numberOfviews =1 
@@ -63,10 +63,10 @@ class JobsController < ApplicationController
      @page = params.fetch(:page,0).to_i
       @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
       
-      @jobsPageCount=(Job.where('deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
-      @jobs = Job.where('deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+      @jobsPageCount=(Job.where('jobs.deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
+      @jobs = Job.where('jobs.deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
       @job_categories = JobCategory.all
-      @featured_jobs = Job.where('deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+      @featured_jobs = Job.where('jobs.deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
 
      
   end
@@ -76,10 +76,10 @@ class JobsController < ApplicationController
     @page = params.fetch(:page,0).to_i
       @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
       
-      @jobsPageCount=(Job.where('deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
-      @jobs = Job.where('deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+      @jobsPageCount=(Job.where('jobs.deadlineDate >= ?',  Date.today).all.count/JOBS_PER_PAGE) 
+      @jobs = Job.where('jobs.deadlineDate >= ? ',  Date.today).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
       @job_categories = JobCategory.all
-      @featured_jobs = Job.where('deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+      @featured_jobs = Job.where('jobs.deadlineDate >= ?',  Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
 
 
     @job = Job.new(job_params)
