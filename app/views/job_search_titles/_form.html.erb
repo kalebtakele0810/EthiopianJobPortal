@@ -1,0 +1,22 @@
+<%= form_with(model: job_search_title) do |form| %>
+  <% if job_search_title.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_search_title.errors.count, "error") %> prohibited this job_search_title from being saved:</h2>
+
+      <ul>
+        <% job_search_title.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

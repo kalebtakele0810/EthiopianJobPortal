@@ -1,0 +1,64 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Jobs</a></li>
+    <li class="breadcrumb-item active" aria-current="page">List</li>
+  </ol>
+</nav>
+<p>
+   <div class="container-fluid">
+         <div class="row">
+            <%= render 'layouts/leftsidebar'%>
+              <div class="col-7">
+                <strong>Title:</strong>
+                <%= @job.title %>
+              </p>
+
+              <p>
+                <strong>Salary:</strong>
+                <%= @job.Salary %>
+              </p>
+
+              <p>
+                <strong>Posteddate:</strong>
+                <%= @job.postedDate %>
+              </p>
+
+              <p>
+                <strong>Deadlinedate:</strong>
+                <%= @job.deadlineDate %>
+              </p>
+
+              <p>
+                <strong>Discription:</strong>
+                <%= @job.discription %>
+              </p>
+
+              <p>
+                <strong>Jobrequirements:</strong>
+                <%= @job.jobRequirements %>
+              </p>
+
+              <p>
+                <strong>Howtoapply:</strong>
+                <%= @job.howtoApply %>
+              </p>
+
+              <p>
+                <strong>Numberofviews:</strong>
+                <%= @job.numberOfviews %>
+              </p>
+              <p>
+                <strong>Job Category:</strong>
+                <% if JobCategory.where(:id=> @job.JobCategory_id).first !=nil %>
+                <%= JobCategory.where(:id=> @job.JobCategory_id).first.name %>
+                <% end %>
+              </p>
+
+              <%= link_to 'Edit', edit_job_path(@job) %> |
+              <%= link_to 'Back', jobs_path %>
+          </div>  
+     <%= render 'layouts/rightsidebar' %>
+    </div>
+
+</div>

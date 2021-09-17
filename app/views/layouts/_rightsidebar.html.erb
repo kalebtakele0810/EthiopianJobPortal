@@ -1,0 +1,29 @@
+<div class="col">
+        <table class="table table-responsive table-hover" width="100%">
+       <thead>
+            <tr>
+              <th>Featured Jobs</th>
+            </tr>
+       </thead>
+       <tbody>
+         
+        <% @featured_jobs.each do |featured_job| %>
+           <tr> 
+                <td>
+                     <%= link_to featured_job.title , featured_job, class:"link-primary" %><br>
+
+                     <%
+                        if featured_job.Employer_id != nil 
+                     %>
+                        <%= Employer.where("id = ?" , featured_job.Employer_id).first.name %>
+                     <%
+                            end
+                     %> 
+                </td>
+                
+            </tr>
+            
+        <% end %>
+      </tbody>
+    </table>            
+</div>

@@ -1,0 +1,3 @@
+class JobSearchTitle < ApplicationRecord
+	
+end

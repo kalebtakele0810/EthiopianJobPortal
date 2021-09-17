@@ -1,0 +1,26 @@
+
+<h1>Employement Types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employement_types.each do |employement_type| %>
+      <tr>
+        <td><%= employement_type.name %></td>
+        <td><%= link_to 'Show', employement_type %></td>
+        <td><%= link_to 'Edit', edit_employement_type_path(employement_type) %></td>
+        <td><%= link_to 'Destroy', employement_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employement Type', new_employement_type_path %>

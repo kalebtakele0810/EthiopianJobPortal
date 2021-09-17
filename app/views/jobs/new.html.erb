@@ -1,0 +1,105 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Jobs</a></li>
+    <li class="breadcrumb-item active" aria-current="page">List</li>
+  </ol>
+</nav>
+   
+      <div class="container-fluid">
+         <div class="row">
+            <%= render 'layouts/leftsidebar'%>
+            	<div class="col-7">
+					<h2>Add New Job</h2>
+
+					<%= form_with(model: @job) do |form| %>
+						  <% if @job.errors.any? %>
+						    <div id="error_explanation">
+						      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+						      <ul>
+						        <% @job.errors.each do |error| %>
+						          <li><%= error.full_message %></li>
+						        <% end %>
+						      </ul>
+						    </div>
+						  <% end %>
+
+						  <div class="field form-group">
+						    <%= form.label :title %>
+						    <%= form.text_field :title ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :Salary %>
+						    <%= form.text_field :Salary ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :deadlineDate %>
+						    <%= form.date_field :deadlineDate ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :discription %>
+						    <%= form.text_area :discription ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :jobRequirements %>
+						    <%= form.text_area :jobRequirements ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :howtoApply %>
+						    <%= form.text_area :howtoApply ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						    <%= form.label :Location_id %>
+						    <%= form.collection_select :Location_id, Location.all, :id, :city, include_blank: true  ,class:"form-control" %>
+						  </div>
+
+						  <div class="field form-group">
+						      <%= form.label :CareerLevel_id %>
+						      <%= form.collection_select :CareerLevel_id, CareerLevel.all, :id, :name, include_blank: true ,class:"form-control"  %>
+						      
+						  </div>
+						  
+						  <div class="field form-group">
+						      <%= form.label :EmployementType_id %>
+						      <%= form.collection_select :EmployementType_id, EmployementType.all, :id, :name, include_blank: true ,class:"form-control"  %>
+						  </div>
+
+						  <div class="field form-group">
+						      <%= form.label :Employer_id %>
+						      <%= form.collection_select :Employer_id, Employer.all, :id, :name, include_blank: true ,class:"form-control"  %>
+						     
+						  </div>
+
+						  <div class="field form-group">
+						      <%= form.label :JobCategory_id %>
+						      <%= form.collection_select :JobCategory_id, JobCategory.all, :id, :name, include_blank: true ,class:"form-control"  %>
+						     
+						  </div>
+						  <br>
+						  <%= form.hidden_field :postedDate, value: DateTime.now %>
+						  <%= form.hidden_field :numberOfviews, value: 0 %>
+						  <%= form.hidden_field :is_approved, value: false %>
+						  <%= form.hidden_field :createdBy_id, value: current_user.id %>
+					   		
+						  
+						  <div class="actions">
+						    <%= form.submit class:"btn btn-primary" %>
+						  </div>
+
+						<% end %>
+
+					<br>
+					<%= link_to 'Back', jobs_path %>
+					<br><br><br>
+				</div>	
+		 <%= render 'layouts/rightsidebar' %>
+    </div>
+
+</div>
