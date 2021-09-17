@@ -233,6 +233,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form (~> 5.1)
   sqlite3 (~> 1.4)
+  thor (~> 1.1)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
