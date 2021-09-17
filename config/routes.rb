@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :destinations
+  resources :addresses
   resources :locations
   get 'jobs/find_by_category'
   resources :jobs 

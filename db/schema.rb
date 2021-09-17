@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_090638) do
+ActiveRecord::Schema.define(version: 2021_09_17_121719) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2021_09_17_090638) do
 
   create_table "career_levels", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "Country"
+    t.string "Region"
+    t.string "City"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,12 +96,14 @@ ActiveRecord::Schema.define(version: 2021_09_17_090638) do
     t.integer "Location_id"
     t.boolean "is_approved"
     t.integer "createdBy_id"
+    t.integer "destination_id"
     t.index ["CareerLevel_id"], name: "index_jobs_on_CareerLevel_id"
     t.index ["EmployementType_id"], name: "index_jobs_on_EmployementType_id"
     t.index ["Employer_id"], name: "index_jobs_on_Employer_id"
     t.index ["JobCategory_id"], name: "index_jobs_on_JobCategory_id"
     t.index ["Location_id"], name: "index_jobs_on_Location_id"
     t.index ["createdBy_id"], name: "index_jobs_on_createdBy_id"
+    t.index ["destination_id"], name: "index_jobs_on_destination_id"
   end
 
   create_table "locations", force: :cascade do |t|

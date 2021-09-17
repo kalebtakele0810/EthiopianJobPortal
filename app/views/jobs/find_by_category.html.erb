@@ -38,8 +38,8 @@
                           
                               <%= link_to job.title, job, class:"link-primary fs-6" %><br>
                                 <p class="text-muted">
-                          <i class="fa fa-map-marker mg5r"></i> <%= Location.where(:id => job.Location_id).pluck(:City).first() %>,
-                           <%= Location.where(:id => job.Location_id).pluck(:region).first() %><br>
+                          <i class="fa fa-map-marker mg5r"></i> <%= Destination.where(:id => job.Location_id).pluck(:City).first() %>,
+                           <%= Destination.where(:id => job.destination_id).pluck(:Region).first() %><br>
                           <i class="mg5r fa fa-envelope"></i> Employment Type: <%= EmployementType.where(:id => job.EmployementType_id).pluck(:name).first() %><br>
                           <i class="mg5r fa fa-briefcase"></i> Level: <%= CareerLevel.where(:id => job.CareerLevel_id).pluck(:name).first() %> 
                             </p>

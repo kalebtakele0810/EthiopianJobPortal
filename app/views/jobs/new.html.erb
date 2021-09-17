@@ -56,8 +56,8 @@
 						  </div>
 
 						  <div class="field form-group">
-						    <%= form.label :Location_id %>
-						    <%= form.collection_select :Location_id, Location.all, :id, :city, include_blank: true  ,class:"form-control" %>
+						    <%= form.label :destination_id %>
+						    <%= form.collection_select :destination_id, Destination.all, :id, :City, include_blank: true  ,class:"form-control" %>
 						  </div>
 
 						  <div class="field form-group">
