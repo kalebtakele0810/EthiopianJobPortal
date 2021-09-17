@@ -26,7 +26,7 @@ gem 'image_processing', '~> 1.2'
 gem 'simple_form', '~> 5.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'mysql2', '~> 0.5.2'
+
 
 gem 'active_storage_validations', '~> 0.9.5'
 gem 'mini_magick', '>= 4.9.5'
@@ -42,11 +42,11 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   # Use sqlite3 as the database for Active Record
-  
+  gem 'sqlite3'
 end
 
 group :production do
-  #gem 'mysql2', '~> 0.5.3'
+  gem 'pg', '~> 1.2', '>= 1.2.3'
 end
 
 group :test do
