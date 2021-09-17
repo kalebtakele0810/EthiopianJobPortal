@@ -6,5 +6,6 @@ class CreateLocations < ActiveRecord::Migration[6.1]
       t.string :city
 
       t.timestamps
+    end
   end
 end
