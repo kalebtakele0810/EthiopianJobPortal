@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :locations
   get 'jobs/find_by_category'
   get 'jobs/find_my_jobs'
+  get 'jobs/search_jobs'
   resources :jobs 
   devise_for :users, controllers: { sessions: 'users/sessions' }
   get 'upload_cv', to: "cv#upload_cv"

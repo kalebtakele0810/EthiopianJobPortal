@@ -22,7 +22,7 @@
         <div class="footer-pad">
           <h4>Information</h4>
           <ul class="list-unstyled">
-            <li><a href="#">About Us</a></li>
+            <li><%= link_to 'About Us', home_about_path %></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms & Conditions</a></li>
@@ -35,10 +35,10 @@
         <div class="footer-pad">
           <h4>Job Seekers & Employers</h4>
           <ul class="list-unstyled">
-            <li><a href="#">Create Account</a></li>
-            <li><a href="#">Sign in</a></li>
-            <li><a href="#">Apply for jobs</a></li>
-            <li><a href="#">Post a Job</a></li>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Apply for job', new_user_session_path%></li>
+            <li><%= link_to 'Post a Job', new_job_path %></li>
             <li>
               <a href="#"></a>
             </li>

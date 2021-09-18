@@ -24,7 +24,17 @@ class JobsController < ApplicationController
     @job_categories = JobCategory.all
     @featured_jobs = Job.where("\"deadlineDate\" >= :date and \"JobCategory_id\" = :jobcategory",  date: Date.today, jobcategory: @JobCategory_id).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
   end
-
+  
+  def search_jobs
+    @page = params.fetch(:page,0).to_i
+    @JobCategory_id = params.fetch(:search,0).to_i
+    
+    @jobsPageCount=Job.where("\"deadlineDate\" >= :date and \"is_approved\"=true",  date: Date.today).all.count/JOBS_PER_PAGE
+    @jobs = Job.where("\"deadlineDate\" >= :date and \"is_approved\"=true",  date: Date.today).order(id: :desc).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
+    @job_categories = JobCategory.all
+    @featured_jobs = Job.where("\"deadlineDate\" >= :date and \"is_approved\"=true",  date: Date.today).order(numberOfviews: :desc).limit(JOBS_PER_PAGE)
+  end
+  
   def find_my_jobs
     @page = params.fetch(:page,0).to_i
     @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
@@ -135,6 +145,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:title, :Salary, :postedDate, :deadlineDate, :discription, :jobRequirements, :howtoApply, :numberOfviews, :Location_id, :CareerLevel_id, :EmployementType_id, :Employer_id, :JobCategory_id, :is_approved,:createdBy_id, :destination_id)
+      params.require(:job).permit(:title, :Salary, :postedDate, :deadlineDate, :discription, :jobRequirements, :howtoApply, :numberOfviews, :Location_id, :CareerLevel_id, :EmployementType_id, :Employer_id, :JobCategory_id, :is_approved,:createdBy_id, :destination_id, :search)
     end
 end

@@ -27,7 +27,7 @@ gem 'simple_form', '~> 5.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'thor', '~> 1.1'
+#gem 'thor', '~> 1.1'
 gem 'active_storage_validations', '~> 0.9.5'
 gem 'mini_magick', '>= 4.9.5'
 
