@@ -87,9 +87,17 @@
 						  <br>
 						  <%= form.hidden_field :postedDate, value: DateTime.now %>
 						  <%= form.hidden_field :numberOfviews, value: 0 %>
-						  <%= form.hidden_field :is_approved, value: false %>
+						    
+               			
 						  <%= form.hidden_field :createdBy_id, value: current_user.id %>
 					   		
+					   		<% if user_signed_in? %>
+				              <% if current_user.is_manager==true %>
+				                 <%= form.hidden_field :is_approved, value: true %>
+				               <% else %>
+				                 <%= form.hidden_field :is_approved, value: false %>
+				               <% end %>
+				               <% end %>
 						  
 						  <div class="actions">
 						    <%= form.submit class:"btn btn-primary" %>
