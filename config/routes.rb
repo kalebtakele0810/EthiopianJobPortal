@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   resources :addresses
   resources :locations
   get 'jobs/find_by_category'
+  get 'jobs/find_my_jobs'
   resources :jobs 
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  get 'upload_cv', to: "cv#upload_cv"
+  patch 'upload_cv', to: 'cv#update'
   resources :employement_types
   resources :career_levels
   resources :job_search_titles

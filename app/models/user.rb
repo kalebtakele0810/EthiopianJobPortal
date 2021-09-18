@@ -10,4 +10,5 @@ class User < ApplicationRecord
   #validates :is_employer, :presence => true
   #validates :is_manager, :presence => true
   has_many :jobs
+  has_one_attached :cv
 end

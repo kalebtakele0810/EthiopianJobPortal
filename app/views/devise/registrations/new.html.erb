@@ -29,14 +29,18 @@
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password",class:"form-control", placeholder:"Password" %>
-      </div><br />
+      </div>
+      <br />
 
       <div class="field form-group">
         <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control", placeholder:"Confirm your password" %>
       </div>
       <br>
-      <%= f.hidden_field :is_employer, value: false %>
-      <%= f.hidden_field :is_manager, value: false %>
+       <div class="field form-group">
+          <%= f.check_box :is_employer, class:"form-check-input" %>
+          <%= f. label "I am an employer", class:"form-check-label" %>
+        </div><br />
+       <%= f.hidden_field :is_manager, value: false %>
      
       <div class="actions">
         <%= f.submit "Sign up", class:"btn btn-primary" %>

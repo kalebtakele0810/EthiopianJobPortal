@@ -1,6 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user! 
   # GET /destinations or /destinations.json
   def index
     @destinations = Destination.all
