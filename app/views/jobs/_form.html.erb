@@ -11,64 +11,67 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title ,class:"form-control" %>
-  </div>
+              <div class="field form-group">
+                <%= form.label :title %>
+                <%= form.text_field :title ,class:"form-control" %>
+              </div>
 
-  <div class="field form-group">
-    <%= form.label :Salary %>
-    <%= form.text_field :Salary ,class:"form-control" %>
-  </div>
+              <div class="field form-group">
+                <%= form.label :Salary %>
+                <%= form.text_field :Salary ,class:"form-control" %>
+              </div>
 
-  <div class="field form-group">
-    <%= form.label :deadlineDate %>
-    <%= form.date_field :deadlineDate ,class:"form-control" %>
-  </div>
+              <div class="field form-group">
+                <%= form.label "deadline Date" %>
+                <%= form.date_field :deadlineDate ,class:"form-control" %>
+              </div>
+              <br>
+              <div class="field form-group">
+                <%= form.label :discription %>
+                <%= form.rich_text_area :discription ,class:"form-control" %>
+              </div>
+              <br>
+              <div class="field form-group">
+                <%= form.label "Job Requirements" %>
+                <%= form.rich_text_area :jobRequirements ,class:"form-control" %>
+              </div>
+              <br>
+              <div class="field form-group">
+                <%= form.label "How To Apply" %>
+                <%= form.rich_text_area :howtoApply ,class:"form-control" %>
+              </div>
+              <br>
 
-  <div class="field form-group">
-    <%= form.label :discription %>
-    <%= form.text_area :discription ,class:"form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :jobRequirements %>
-    <%= form.text_area :jobRequirements ,class:"form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :howtoApply %>
-    <%= form.text_area :howtoApply ,class:"form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :destination_id %>
-    <%= form.collection_select :destination_id, Destination.all, :id, :City, include_blank: true  ,class:"form-control" %>
-  </div>
-
-  <div class="field form-group">
-      <%= form.label :CareerLevel_id %>
-      <%= form.collection_select :CareerLevel_id, CareerLevel.all, :id, :name, include_blank: true ,class:"form-control"  %>
-      
-  </div>
-  
-  <div class="field form-group">
-      <%= form.label :EmployementType_id %>
-      <%= form.collection_select :EmployementType_id, EmployementType.all, :id, :name, include_blank: true ,class:"form-control"  %>
-     
-  </div>
-
-  <div class="field form-group">
-      <%= form.label :Employer_id %>
-      <%= form.collection_select :Employer_id, Employer.all, :id, :name, include_blank: true ,class:"form-control"  %>
-  </div>
-
-  <div class="field form-group">
-      <%= form.label :JobCategory_id %>
-      <%= form.collection_select :JobCategory_id, JobCategory.all, :id, :name, include_blank: true ,class:"form-control"  %>
-     
-  </div>
-  <br>
+              <div class="field form-group">
+                <%= form.label "Location" %>
+                <%= form.collection_select :destination_id, Destination.all, :id, :City, include_blank: true  ,class:"form-control custom-select" %>
+              </div>
+              <br>
+              <div class="field form-group">
+                  <%= form.label "Career Level" %>
+                  <%= form.collection_select :CareerLevel_id, CareerLevel.all, :id, :name, include_blank: true ,class:"form-control"  %>
+                  
+              </div>
+              <br>
+              <% if current_user.is_manager %>
+                <div class="field form-group">
+                    <%= form.label "Employement Type" %>
+                    <%= form.collection_select :EmployementType_id, EmployementType.all, :id, :name, include_blank: true ,class:"form-control"  %>
+                </div>
+                <br>
+              <% end %>
+              <div class="field form-group">
+                  <%= form.label "Employer" %>
+                  <%= form.collection_select :Employer_id, Employer.all, :id, :name, include_blank: true ,class:"form-control custom-select"  %>
+                 
+              </div>
+              <br>
+              <div class="field form-group">
+                  <%= form.label "Job Category" %>
+                  <%= form.collection_select :JobCategory_id, JobCategory.all, :id, :name, include_blank: true ,class:"form-control"  %>
+                 
+              </div>
+              <br>
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>
   </div>

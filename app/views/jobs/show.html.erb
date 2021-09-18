@@ -10,55 +10,82 @@
          <div class="row">
             <%= render 'layouts/leftsidebar'%>
               <div class="col-7">
-                <strong>Title:</strong>
-                <%= @job.title %>
-              </p>
+               <main class="">
+                <div class="box shadow-sm  rounded bg-white mb-3">
+                  <div class="box-title border-bottom p-3">
+                    <h6 class="m-0 listingInfoHeader"><%= @job.title %></h6>
+                  </div>
+                  <div class=" p-3">
+                    <p></p>
+                  <p>
+                    <p>
+                  <strong>Salary:</strong>
+                  <%= @job.Salary %>
+                </p>
 
-              <p>
-                <strong>Salary:</strong>
-                <%= @job.Salary %>
-              </p>
+                <p>
+                  <strong>Posted Date:</strong>
+                  <%= @job.postedDate %>
+                </p>
 
-              <p>
-                <strong>Posteddate:</strong>
-                <%= @job.postedDate %>
-              </p>
+                <p>
+                  <strong>Deadlinedate:</strong>
+                  <%= @job.deadlineDate %>
+                </p>
+                <p>
+                  <strong>Job Category:</strong>
+                  <% if JobCategory.where(:id=> @job.JobCategory_id).first !=nil %>
+                  <%= JobCategory.where(:id=> @job.JobCategory_id).first.name %>
+                  <% end %>
+                </p>
+                <p>
+                  <strong>Career Level:</strong>
+                  <% if CareerLevel.where(:id=> @job.CareerLevel_id).first !=nil %>
+                  <%= CareerLevel.where(:id=> @job.CareerLevel_id).first.name %>
+                  <% end %>
+                </p>
+                <p>
+                  <strong>Employement Type:</strong>
+                  <% if EmployementType.where(:id=> @job.EmployementType_id).first !=nil %>
+                  <%= EmployementType.where(:id=> @job.EmployementType_id).first.name %>
+                  <% end %>
+                </p>
+                 <p>
+                  <strong>Job Location:</strong>
+                  <% if Destination.where(:id=> @job.destination_id).first !=nil %>
+                  <%= Destination.where(:id=> @job.destination_id).first.City %>,
+                  <%= Destination.where(:id=> @job.destination_id).first.Region %>
+                  <% end %>
 
-              <p>
-                <strong>Deadlinedate:</strong>
-                <%= @job.deadlineDate %>
-              </p>
+                <p>
+                  <strong>Job Views:</strong>
+                  <%= @job.numberOfviews %>
+                </p>
+                  </p>
+                  </div>
+                </div>
 
-              <p>
-                <strong>Discription:</strong>
-                <%= @job.discription %>
-              </p>
 
-              <p>
-                <strong>Jobrequirements:</strong>
-                <%= @job.jobRequirements %>
-              </p>
-
-              <p>
-                <strong>Howtoapply:</strong>
-                <%= @job.howtoApply %>
-              </p>
-
-              <p>
-                <strong>Numberofviews:</strong>
-                <%= @job.numberOfviews %>
-              </p>
-              <p>
-                <strong>Job Category:</strong>
-                <% if JobCategory.where(:id=> @job.JobCategory_id).first !=nil %>
-                <%= JobCategory.where(:id=> @job.JobCategory_id).first.name %>
-                <% end %>
-              </p>
-
-              <%= link_to 'Edit', edit_job_path(@job) %> |
+              <div class="box shadow-sm  rounded bg-white mb-3">
+                  <div class="box-title border-bottom p-3">
+                    <h6 class="m-0 listingInfoHeader">Job Discription</h6>
+                  </div>
+                  <div class=" p-3">
+                    <p></p>
+                  <p><%= @job.discription %></p>
+                  <p></p></div>
+                </div>
+                <div class="box shadow-sm  rounded bg-white mb-3"><div class="box-title border-bottom p-3">
+                <h6 class="m-0 listingInfoHeader">Job Requirements</h6></div><div class="box-body p-3"><p></p>
+                <p><%= @job.jobRequirements %></p></div></div>
+                <div class="box shadow-sm  rounded bg-white mb-3"><div class="box-title border-bottom p-3">
+                <h6 class="m-0 listingInfoHeader">How to Apply</h6></div><div class="box-body p-3"><div class="flex-row flex-wrap flex-align-start flex-vertical-center"></div><div class="box-body p-3"><p></p><p>
+                <%= @job.howtoApply %></p><p>&nbsp;</p><p></p></div></div></div>
+              </main>
+             <%= link_to 'Edit', edit_job_path(@job) %> |
               <%= link_to 'Back', jobs_path %>
           </div>  
-     <%= render 'layouts/rightsidebar' %>
+         <%= render 'layouts/rightsidebar'%>
     </div>
 
 </div>
