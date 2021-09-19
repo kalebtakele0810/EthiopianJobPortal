@@ -1,9 +1,8 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Jobs</a></li>
-    <li class="breadcrumb-item active" aria-current="page">List</li>
+    <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Jobs in Ethiopia</li>
   </ol>
 </nav>
 <div class="container-fluid">
@@ -38,8 +37,11 @@
                           
                               <%= link_to job.title, job, class:"link-primary fs-6" %><br>
                                 <p class="text-muted">
-                          <i class="fa fa-map-marker mg5r"></i> <%= Destination.where(:id => job.destination_id).pluck(:City).first() %>,
-                           <%= Destination.where(:id => job.destination_id).pluck(:Region).first() %><br>
+                          <i class="fa fa-map-marker mg5r"></i> 
+                           <%= Destination.where(:id => job.destination_id).pluck(:City).first() %>,
+                           <%= Destination.where(:id => job.destination_id).pluck(:Region).first() %>
+
+                           <br>
                           <i class="mg5r fa fa-envelope"></i> Employment Type: <%= EmployementType.where(:id => job.EmployementType_id).pluck(:name).first() %><br>
                           <i class="mg5r fa fa-briefcase"></i> Level: <%= CareerLevel.where(:id => job.CareerLevel_id).pluck(:name).first() %> 
                             </p>

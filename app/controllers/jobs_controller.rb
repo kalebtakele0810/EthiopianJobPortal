@@ -18,7 +18,8 @@ class JobsController < ApplicationController
   def find_by_category
    @page = params.fetch(:page,0).to_i
     @JobCategory_id = params.fetch(:JobCategory_id,0).to_i
-    
+    @category_name=JobCategory.find(@JobCategory_id).name
+
     @jobsPageCount=(Job.where("\"deadlineDate\" >= :date and \"JobCategory_id\" = :jobcategory and \"is_approved\"=true",  date: Date.today, jobcategory: @JobCategory_id).all.count/JOBS_PER_PAGE) 
     @jobs = Job.where("\"deadlineDate\" >= :date and \"JobCategory_id\" = :jobcategory",  date: Date.today, jobcategory: @JobCategory_id).order(id: :desc).offset(@page * JOBS_PER_PAGE).limit(JOBS_PER_PAGE)
     @job_categories = JobCategory.all

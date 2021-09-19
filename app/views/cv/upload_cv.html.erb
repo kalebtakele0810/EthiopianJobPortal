@@ -1,5 +1,12 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'Full Jobs list', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">CV</li>
+  </ol>
+</nav>
 <%= form_with model: @user, url: upload_cv_path(@user), method: :patch, local: true do |f| %>
-  
+  <br>
   <div class="field">
    
     <h6 class="m-0 listingInfoHeader"> <%= "Uploading CV to "+ current_user.first_name+" "+current_user.last_name %></h6>

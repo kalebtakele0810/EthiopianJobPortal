@@ -1,8 +1,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Jobs</a></li>
-    <li class="breadcrumb-item active" aria-current="page">List</li>
+    <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'Full Jobs list', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @job.title %></li>
   </ol>
 </nav>
 <p>
